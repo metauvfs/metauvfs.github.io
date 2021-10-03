@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>MetaUVFS</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image" content="https://metauvfs.github.io/img/metauvfs_square.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://metauvfs.github.io/"/>
+    <meta property="og:title" content="MetaUVFS" />
+    <meta property="og:description" content="Project page for MetaUVFS: Unsupervised Few-Shot Action Recognition via Action-Appearance Aligned Meta-Adaptation." />
+
+        <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MetaUVFS" />
+    <meta name="twitter:description" content="Project page for MetaUVFS: Unsupervised Few-Shot Action Recognition via Action-Appearance Aligned Meta-Adaptation." />
+    <meta name="twitter:image" content="https://jonbarron.info/mipnerf/img/rays_square.png" />
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                <b>MetaUVFS</b>: Unsupervised Few-Shot Action Recognition <br> via Action-Appearance Aligned Meta-Adaptation</br>
+                <small style="color: dimgray;">
+                    ICCV 2021 (Oral)
+                </small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://scholar.google.co.in/citations?user=AVLSxKMAAAAJ&hl=en">
+                          Jay Patravali*
+                        </a>
+                        </br>Oregon State University
+                    </li>
+                    <li>
+                        <a href="http://g1910.github.io/">
+                            Gaurav Mittal*
+                        </a>
+                        </br>Microsoft
+                    </li>
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=x4IFIuYAAAAJ&hl=en">
+                          Ye Yu
+                        </a>
+                        </br>Microsoft
+                    </li>
+                    <li>
+                        <a href="http://web.engr.oregonstate.edu/~lif/">
+                          Fuxin Li
+                        </a>
+                        </br>Oregon State University
+                    </li>
+                    <li>
+                        <a href="https://www.microsoft.com/en-us/research/people/meic/">
+                          Mei Chen
+                        </a>
+                        </br>Microsoft
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2109.15317">
+                            <img src="img/metauvfs_paper_image.png" height="60px" alt="metauvfs paper image"/>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+<!--                        <li>-->
+<!--                            <a href="https://youtu.be/EpH175PY1A0">-->
+<!--                            <image src="img/youtube_icon.png" height="60px">-->
+<!--                                <h4><strong>Video</strong></h4>-->
+<!--                            </a>-->
+<!--                        </li>-->
+                        <!-- <li>
+                            <a href="https://github.com/">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                <img src="img/teaser_metauvfs.png" class="img-responsive" alt="overview"><br>
+                    <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+We present MetaUVFS as the first Unsupervised Meta-learning algorithm for Video Few-Shot action recognition. MetaUVFS leverages over 550K unlabeled videos to train a two-stream 2D and 3D CNN architecture via contrastive learning to capture the appearance-specific spatial and action-specific spatio-temporal video features respectively. MetaUVFS comprises a novel Action-Appearance Aligned Meta-adaptation (A3M) module that learns to focus on the action-oriented video features in relation to the appearance features via explicit few-shot episodic meta-learning over unsupervised hard-mined episodes. Our action-appearance alignment and explicit few-shot learner conditions the unsupervised training to mimic the downstream few-shot task, enabling MetaUVFS to significantly outperform all unsupervised methods on few-shot benchmarks. Moreover, unlike previous few-shot action recognition methods that are supervised, MetaUVFS needs neither base-class labels nor a supervised pretrained backbone. Thus, we need to train MetaUVFS just once to perform competitively or sometimes even outperform state-of-the-art supervised methods on popular HMDB51, UCF101, and Kinetics100 few-shot datasets.
+                </p>
+            </div>
+        </div>
+
+
+
+<!--        <div class="row">-->
+<!--            <div class="col-md-8 col-md-offset-2">-->
+<!--                <h3>-->
+<!--                    Video-->
+<!--                </h3>-->
+<!--                <div class="text-center">-->
+<!--                    <div style="position:relative;padding-top:56.25%;">-->
+<!--                        <iframe src="https://www.youtube.com/embed/EpH175PY1A0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    MetaUVFS: Pipeline
+                </h3>
+                <p style="text-align:center;">
+                    <img src="img/metauvfs_pipeline.png" height="50px" class="img-responsive" alt="model pipeline"/>
+                </p>
+                <p class="text-justify">
+                    The model pipeline for MetaUVFS consists of four stages as shown above. The first three are part of the meta-training phase and the last one is the few-shot meta-testing phase.
+                </p>
+<!--                <p class="text-justify">-->
+                    <h3>
+                        Unsupervised Pretraining via InfoNCE
+                    </h3>
+                    <p style="text-align:center;">
+                        <img src="img/metauvfs_stage1.png" height="50px" class="img-responsive" alt="model stage1"/>
+                    </p>
+<!--                </p>-->
+                 <p class="text-justify">
+                     We pretrain a two-stream visual encoder comprising of a 2D CNN based appearance stream to specialize in learning spatial appearance features and a 3D CNN based action stream to specialize in learning spatio-temporal action related features. In the absence of supervision, we leverage self-supervision from over half a million unlabeled videos via contrastive learning (InfoNCE).
+
+                    </p>
+<!--                <p class="text-justify">-->
+                    <h3>
+                        Unsupervised Hard Episodes Generation
+                    </h3>
+<!--                </p>-->
+                    <p style="text-align:center;">
+                        <img src="img/metauvfs_stage2.png" height="50px" class="img-responsive" alt="model stage 2"/>
+                    </p>
+                 <p class="text-justify">
+                     To specialize the two-stream encoder for downstream few-shot tasks, we perform unsupervised episodic meta-training. We use hard augmentations of unlabeled data to generate episodes where one augmentation behaves as the support and the other behaves as the query.
+
+                </p>
+                    <h3>
+                        Action-Appearance Aligned Meta-Adaptation (A3M)
+                    </h3>
+                    <p style="text-align:center;">
+                        <img src="img/metauvfs_stage3.png" height="50px" class="img-responsive" alt="model stage 3"/>
+                    </p>
+                <p class="text-justify">
+                    We design a novel Action-Appearance Aligned Meta-Adaptation (A3M) module to combine the action and appearance features. A3M module applies a cross-attention to learn a soft correspondence between the two-stream features. We use MAML to train A3M via episodic meta-training used unsupervised hard episodes generated above.
+                </p>
+                    <h3>
+                        Few-Shot Meta-Testing
+                    </h3>
+                <p style="text-align:center;">
+                <img src="img/metauvfs_stage4.png" height="50px" class="img-responsive" alt="model stage 4" style="margin-left: auto; margin-right: auto;"/>
+
+                </p>
+                <p class="text-justify">
+                    Once meta-trained without any supervision, MetaUVFS can be subjected to test episodes having unseen classes as part of few-shot meta-testing.
+                </p>
+            </div>
+        </div>
+            
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results
+                </h3>
+                <p class="text-justify">
+                    We evaluate MetaUVFS on standard video few-shot benchmarks – UCF101, Kinetics100, HMDB-51. For unsupervised pretraining, we utilize half a million unlabeled videos from Kinetics700 dataset. We tested on standard 5-way 1-shot and 5-way 5-shot scenarios. The accuracy is reported as an average over 10K randomly generated episodes from novel classes.
+                </p>                
+                <p class="text-justify">
+                    <h4>
+                        Significantly outperforms unsupervised state-of-the-art video representation learning methods
+                    </h4>
+                    <p style="text-align:center;">
+                        <image src="img/results_unsupervised.png" height="50px" class="img-responsive">
+                    </p>
+                </p>
+                <p class="text-justify">
+                    <h4>
+                        Outperforms/On-par with supervised few-shot action recognition methods
+                    </h4>
+                    <p style="text-align:center;">
+                        <image src="img/results_supervised.png" height="50px" class="img-responsive">
+                    </p>
+                </p>
+            </div>
+        </div>
+        
+            
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group">
+                    <textarea id="bibtex" class="form-control" readonly>
+@InProceedings{patravali2021unsupervised,
+    author = {Patravali, Jay and Mittal, Gaurav and Yu, Ye and Li, Fuxin and Chen, Mei},
+    title = {Unsupervised Few-Shot Action Recognition via Action-Appearance Aligned Meta-Adaptation},
+    booktitle = {ICCV 2021},
+    year = {2021},
+    month = {October}
+}
+</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and <a href="https://jonbarron.info/">Jon Barron</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
